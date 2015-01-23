@@ -1,0 +1,151 @@
+$view = new view();
+$view->name = 'authors_illustrations_test';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'node';
+$view->human_name = 'authors_illustrations_test';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Authors and Illustrations (D7)';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['query']['options']['distinct'] = TRUE;
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+$handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Clear';
+$handler->display->display_options['pager']['type'] = 'none';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['style_options']['default_row_class'] = FALSE;
+$handler->display->display_options['style_options']['row_class_special'] = FALSE;
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Header: Global: Result summary */
+$handler->display->display_options['header']['result']['id'] = 'result';
+$handler->display->display_options['header']['result']['table'] = 'views';
+$handler->display->display_options['header']['result']['field'] = 'result';
+/* No results behavior: Global: Text area */
+$handler->display->display_options['empty']['area']['id'] = 'area';
+$handler->display->display_options['empty']['area']['table'] = 'views';
+$handler->display->display_options['empty']['area']['field'] = 'area';
+$handler->display->display_options['empty']['area']['empty'] = TRUE;
+$handler->display->display_options['empty']['area']['content'] = 'No results were found - please try a different filter combination (or <i>Reset</i> form).';
+$handler->display->display_options['empty']['area']['format'] = '2';
+/* Relationship: Content: Taxonomy terms on node */
+$handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+$handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+$handler->display->display_options['relationships']['term_node_tid']['label'] = 'filter';
+$handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
+$handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+  'vocabulary_3' => 'vocabulary_3',
+  'vocabulary_4' => 'vocabulary_4',
+  'vocabulary_2' => 0,
+  'vocabulary_1' => 0,
+  'vocabulary_5' => 0,
+);
+/* Field: Content: Path */
+$handler->display->display_options['fields']['path']['id'] = 'path';
+$handler->display->display_options['fields']['path']['table'] = 'node';
+$handler->display->display_options['fields']['path']['field'] = 'path';
+$handler->display->display_options['fields']['path']['label'] = '';
+$handler->display->display_options['fields']['path']['exclude'] = TRUE;
+$handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['path']['element_default_classes'] = FALSE;
+$handler->display->display_options['fields']['path']['absolute'] = TRUE;
+/* Field: Content: Last Name */
+$handler->display->display_options['fields']['field_lastname']['id'] = 'field_lastname';
+$handler->display->display_options['fields']['field_lastname']['table'] = 'field_data_field_lastname';
+$handler->display->display_options['fields']['field_lastname']['field'] = 'field_lastname';
+$handler->display->display_options['fields']['field_lastname']['label'] = '';
+$handler->display->display_options['fields']['field_lastname']['alter']['make_link'] = TRUE;
+$handler->display->display_options['fields']['field_lastname']['alter']['path'] = '[path]';
+$handler->display->display_options['fields']['field_lastname']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_lastname']['element_default_classes'] = FALSE;
+/* Sort criterion: Content: Last Name (field_lastname) */
+$handler->display->display_options['sorts']['field_lastname_value']['id'] = 'field_lastname_value';
+$handler->display->display_options['sorts']['field_lastname_value']['table'] = 'field_data_field_lastname';
+$handler->display->display_options['sorts']['field_lastname_value']['field'] = 'field_lastname_value';
+/* Filter criterion: Content: Published */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = 1;
+$handler->display->display_options['filters']['status']['group'] = 1;
+$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'creator' => 'creator',
+);
+/* Filter criterion: Content: Atlantic Canadian Identity (taxonomy_vocabulary_3) */
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['id'] = 'taxonomy_vocabulary_3_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['table'] = 'field_data_taxonomy_vocabulary_3';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['field'] = 'taxonomy_vocabulary_3_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['exposed'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['expose']['operator_id'] = 'taxonomy_vocabulary_3_tid_op';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['expose']['label'] = 'Filter by Atlantic Canadian Identity';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['expose']['operator'] = 'taxonomy_vocabulary_3_tid_op';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['expose']['identifier'] = 'taxonomy_vocabulary_3_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['expose']['multiple'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['type'] = 'select';
+$handler->display->display_options['filters']['taxonomy_vocabulary_3_tid']['vocabulary'] = 'vocabulary_3';
+/* Filter criterion: Content: Type (taxonomy_vocabulary_4) */
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['id'] = 'taxonomy_vocabulary_4_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['table'] = 'field_data_taxonomy_vocabulary_4';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['field'] = 'taxonomy_vocabulary_4_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['exposed'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['expose']['operator_id'] = 'taxonomy_vocabulary_4_tid_op';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['expose']['label'] = 'Filter by Type (author, illustrator, etc.)';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['expose']['operator'] = 'taxonomy_vocabulary_4_tid_op';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['expose']['identifier'] = 'taxonomy_vocabulary_4_tid';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['expose']['multiple'] = TRUE;
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['type'] = 'select';
+$handler->display->display_options['filters']['taxonomy_vocabulary_4_tid']['vocabulary'] = 'vocabulary_4';
+
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['path'] = 'authors-illustrators';
+$handler->display->display_options['menu']['type'] = 'normal';
+$handler->display->display_options['menu']['title'] = 'Authors/Illustrators (D7)';
+$handler->display->display_options['menu']['weight'] = '0';
+$handler->display->display_options['menu']['name'] = 'main-menu';
+$handler->display->display_options['menu']['context'] = 0;
+$handler->display->display_options['menu']['context_only_inline'] = 0;
+$translatables['authors_illustrations_test'] = array(
+  t('Master'),
+  t('Authors and Illustrations (D7)'),
+  t('more'),
+  t('Search'),
+  t('Clear'),
+  t('Sort by'),
+  t('Asc'),
+  t('Desc'),
+  t('Displaying @start - @end of @total'),
+  t('No results were found - please try a different filter combination (or <i>Reset</i> form).'),
+  t('filter'),
+  t('Filter by Atlantic Canadian Identity'),
+  t('Filter by Type (author, illustrator, etc.)'),
+  t('Page'),
+);

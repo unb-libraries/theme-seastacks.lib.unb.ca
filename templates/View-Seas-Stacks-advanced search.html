@@ -1,0 +1,529 @@
+$view = new view();
+$view->name = 'advanced_search_migrated_d7';
+$view->description = 'boolean search of Sea Stacks site';
+$view->tag = '';
+$view->base_table = 'node';
+$view->human_name = 'Advanced search migrated D7';
+$view->core = 0;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Defaults */
+$handler = $view->new_display('default', 'Defaults', 'default');
+$handler->display->display_options['title'] = 'Advanced Search';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+$handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+$handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Clear';
+$handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
+$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['pager']['options']['items_per_page'] = 20;
+$handler->display->display_options['style_plugin'] = 'table';
+$handler->display->display_options['style_options']['columns'] = array(
+  'title' => 'title',
+  'biblio_authors' => 'biblio_authors',
+  'kid' => 'kid',
+  'biblio_year' => 'biblio_year',
+  'biblio_custom4' => 'biblio_custom4',
+  'biblio_custom3' => 'biblio_custom3',
+);
+$handler->display->display_options['style_options']['default'] = 'title';
+$handler->display->display_options['style_options']['info'] = array(
+  'title' => array(
+    'sortable' => 1,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'biblio_authors' => array(
+    'sortable' => 1,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'kid' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'biblio_year' => array(
+    'sortable' => 1,
+    'default_sort_order' => 'asc',
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'biblio_custom4' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+  'biblio_custom3' => array(
+    'align' => '',
+    'separator' => '',
+    'empty_column' => 0,
+  ),
+);
+/* Header: Global: Result summary */
+$handler->display->display_options['header']['result']['id'] = 'result';
+$handler->display->display_options['header']['result']['table'] = 'views';
+$handler->display->display_options['header']['result']['field'] = 'result';
+$handler->display->display_options['header']['result']['content'] = 'Displaying @start - @end of @total results';
+/* No results behavior: Global: Text area */
+$handler->display->display_options['empty']['area']['id'] = 'area';
+$handler->display->display_options['empty']['area']['table'] = 'views';
+$handler->display->display_options['empty']['area']['field'] = 'area';
+$handler->display->display_options['empty']['area']['empty'] = TRUE;
+$handler->display->display_options['empty']['area']['content'] = '<p>Sorry, your search criteria didn\'t match on any books.</p>
+<div class="no-results">Please:
+<ul>
+<li>Modify your search filters, or</li>
+<li>Reset the search form</li>
+</ul>
+<b>Tip:</b> if you entered a title check your spelling.
+</div>';
+$handler->display->display_options['empty']['area']['format'] = '2';
+/* Field: Broken/missing handler */
+$handler->display->display_options['fields']['field_book_cover_fid']['id'] = 'field_book_cover_fid';
+$handler->display->display_options['fields']['field_book_cover_fid']['table'] = 'node_data_field_book_cover';
+$handler->display->display_options['fields']['field_book_cover_fid']['field'] = 'field_book_cover_fid';
+$handler->display->display_options['fields']['field_book_cover_fid']['label'] = 'Book Cover';
+/* Field: Content: Title */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+/* Field: Biblio: Authors */
+$handler->display->display_options['fields']['biblio_authors']['id'] = 'biblio_authors';
+$handler->display->display_options['fields']['biblio_authors']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_authors']['field'] = 'biblio_authors';
+$handler->display->display_options['fields']['biblio_authors']['biblio_label'] = 1;
+/* Field: Biblio: All keywords */
+$handler->display->display_options['fields']['kid']['id'] = 'kid';
+$handler->display->display_options['fields']['kid']['table'] = 'biblio_keyword';
+$handler->display->display_options['fields']['kid']['field'] = 'kid';
+$handler->display->display_options['fields']['kid']['label'] = 'Descriptors';
+/* Field: Biblio: Year of Publication */
+$handler->display->display_options['fields']['biblio_year']['id'] = 'biblio_year';
+$handler->display->display_options['fields']['biblio_year']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_year']['field'] = 'biblio_year';
+$handler->display->display_options['fields']['biblio_year']['biblio_label'] = 1;
+/* Field: Biblio: Age Range */
+$handler->display->display_options['fields']['biblio_custom4']['id'] = 'biblio_custom4';
+$handler->display->display_options['fields']['biblio_custom4']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_custom4']['field'] = 'biblio_custom4';
+$handler->display->display_options['fields']['biblio_custom4']['alter']['text'] = '[biblio_custom4]';
+$handler->display->display_options['fields']['biblio_custom4']['alter']['strip_tags'] = TRUE;
+/* Field: Biblio: Jurisdiction */
+$handler->display->display_options['fields']['biblio_custom3']['id'] = 'biblio_custom3';
+$handler->display->display_options['fields']['biblio_custom3']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_custom3']['field'] = 'biblio_custom3';
+$handler->display->display_options['fields']['biblio_custom3']['label'] = 'Location';
+$handler->display->display_options['fields']['biblio_custom3']['alter']['text'] = '[biblio_custom3]';
+$handler->display->display_options['fields']['biblio_custom3']['alter']['strip_tags'] = TRUE;
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'biblio' => 'biblio',
+);
+$handler->display->display_options['filters']['type']['group'] = 1;
+/* Filter criterion: Content: Published */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+$handler->display->display_options['filters']['status']['group'] = 1;
+/* Filter criterion: Content: Title */
+$handler->display->display_options['filters']['title']['id'] = 'title';
+$handler->display->display_options['filters']['title']['table'] = 'node';
+$handler->display->display_options['filters']['title']['field'] = 'title';
+$handler->display->display_options['filters']['title']['operator'] = 'contains';
+$handler->display->display_options['filters']['title']['group'] = 1;
+$handler->display->display_options['filters']['title']['exposed'] = TRUE;
+$handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+$handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+$handler->display->display_options['filters']['title']['expose']['description'] = 'Note: partial word titles are ok';
+$handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+$handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+$handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
+/* Filter criterion: Biblio: Author last name */
+$handler->display->display_options['filters']['lastname']['id'] = 'lastname';
+$handler->display->display_options['filters']['lastname']['table'] = 'biblio_contributor_data';
+$handler->display->display_options['filters']['lastname']['field'] = 'lastname';
+$handler->display->display_options['filters']['lastname']['group'] = 1;
+$handler->display->display_options['filters']['lastname']['exposed'] = TRUE;
+$handler->display->display_options['filters']['lastname']['expose']['operator_id'] = 'lastname_op';
+$handler->display->display_options['filters']['lastname']['expose']['label'] = 'Author(s)';
+$handler->display->display_options['filters']['lastname']['expose']['operator'] = 'lastname_op';
+$handler->display->display_options['filters']['lastname']['expose']['identifier'] = 'lastname';
+$handler->display->display_options['filters']['lastname']['expose']['multiple'] = TRUE;
+$handler->display->display_options['filters']['lastname']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+/* Filter criterion: Biblio: Keyword ID */
+$handler->display->display_options['filters']['kid']['id'] = 'kid';
+$handler->display->display_options['filters']['kid']['table'] = 'biblio_keyword';
+$handler->display->display_options['filters']['kid']['field'] = 'kid';
+$handler->display->display_options['filters']['kid']['group'] = 1;
+$handler->display->display_options['filters']['kid']['exposed'] = TRUE;
+$handler->display->display_options['filters']['kid']['expose']['operator_id'] = 'kid_op';
+$handler->display->display_options['filters']['kid']['expose']['label'] = 'Descriptors';
+$handler->display->display_options['filters']['kid']['expose']['operator'] = 'kid_op';
+$handler->display->display_options['filters']['kid']['expose']['identifier'] = 'kid';
+$handler->display->display_options['filters']['kid']['expose']['multiple'] = TRUE;
+$handler->display->display_options['filters']['kid']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['kid']['reduce_duplicates'] = TRUE;
+$handler->display->display_options['filters']['kid']['type'] = 'select';
+/* Filter criterion: Biblio: Year of Publication */
+$handler->display->display_options['filters']['biblio_year']['id'] = 'biblio_year';
+$handler->display->display_options['filters']['biblio_year']['table'] = 'biblio';
+$handler->display->display_options['filters']['biblio_year']['field'] = 'biblio_year';
+$handler->display->display_options['filters']['biblio_year']['group'] = 1;
+$handler->display->display_options['filters']['biblio_year']['exposed'] = TRUE;
+$handler->display->display_options['filters']['biblio_year']['expose']['operator_id'] = 'biblio_year_op';
+$handler->display->display_options['filters']['biblio_year']['expose']['label'] = 'Year of Publication';
+$handler->display->display_options['filters']['biblio_year']['expose']['use_operator'] = TRUE;
+$handler->display->display_options['filters']['biblio_year']['expose']['operator'] = 'biblio_year_op';
+$handler->display->display_options['filters']['biblio_year']['expose']['identifier'] = 'biblio_year';
+$handler->display->display_options['filters']['biblio_year']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+/* Filter criterion: Biblio: Age Range */
+$handler->display->display_options['filters']['biblio_custom4']['id'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['table'] = 'biblio';
+$handler->display->display_options['filters']['biblio_custom4']['field'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['operator'] = 'contains';
+$handler->display->display_options['filters']['biblio_custom4']['group'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['exposed'] = TRUE;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['operator_id'] = 'biblio_custom4_op';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['label'] = 'Age Range';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['operator'] = 'biblio_custom4_op';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['identifier'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_filter'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_field'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_dependent'] = 0;
+/* Filter criterion: Biblio: Jurisdiction */
+$handler->display->display_options['filters']['biblio_custom3']['id'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['table'] = 'biblio';
+$handler->display->display_options['filters']['biblio_custom3']['field'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['operator'] = 'contains';
+$handler->display->display_options['filters']['biblio_custom3']['group'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['exposed'] = TRUE;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['operator_id'] = 'biblio_custom3_op';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['label'] = 'Location';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['operator'] = 'biblio_custom3_op';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['identifier'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_filter'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_field'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_dependent'] = 0;
+
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'page_1');
+$handler->display->display_options['defaults']['fields'] = FALSE;
+/* Field: Content: Book Cover */
+$handler->display->display_options['fields']['field_book_cover']['id'] = 'field_book_cover';
+$handler->display->display_options['fields']['field_book_cover']['table'] = 'field_data_field_book_cover';
+$handler->display->display_options['fields']['field_book_cover']['field'] = 'field_book_cover';
+$handler->display->display_options['fields']['field_book_cover']['label'] = 'Cover';
+$handler->display->display_options['fields']['field_book_cover']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['field_book_cover']['click_sort_column'] = 'fid';
+$handler->display->display_options['fields']['field_book_cover']['settings'] = array(
+  'image_style' => 'book_cover',
+  'image_link' => 'content',
+);
+$handler->display->display_options['fields']['field_book_cover']['delta_limit'] = '1';
+$handler->display->display_options['fields']['field_book_cover']['delta_offset'] = '0';
+/* Field: Content: Title */
+$handler->display->display_options['fields']['title']['id'] = 'title';
+$handler->display->display_options['fields']['title']['table'] = 'node';
+$handler->display->display_options['fields']['title']['field'] = 'title';
+$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+/* Field: Biblio: Authors */
+$handler->display->display_options['fields']['biblio_authors']['id'] = 'biblio_authors';
+$handler->display->display_options['fields']['biblio_authors']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_authors']['field'] = 'biblio_authors';
+$handler->display->display_options['fields']['biblio_authors']['alter']['trim_whitespace'] = TRUE;
+$handler->display->display_options['fields']['biblio_authors']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['biblio_authors']['biblio_label'] = 1;
+$handler->display->display_options['fields']['biblio_authors']['auth_category'] = '1';
+$handler->display->display_options['fields']['biblio_authors']['initialize'] = 0;
+$handler->display->display_options['fields']['biblio_authors']['separator'] = 'and ';
+$handler->display->display_options['fields']['biblio_authors']['name_order'] = 'last-first';
+/* Field: Biblio: Keywords */
+$handler->display->display_options['fields']['biblio_keywords']['id'] = 'biblio_keywords';
+$handler->display->display_options['fields']['biblio_keywords']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_keywords']['field'] = 'biblio_keywords';
+$handler->display->display_options['fields']['biblio_keywords']['label'] = 'Descriptor(s)';
+$handler->display->display_options['fields']['biblio_keywords']['element_label_colon'] = FALSE;
+$handler->display->display_options['fields']['biblio_keywords']['biblio_label'] = 1;
+$handler->display->display_options['fields']['biblio_keywords']['separator'] = ', ';
+/* Field: Biblio: Year of Publication */
+$handler->display->display_options['fields']['biblio_year']['id'] = 'biblio_year';
+$handler->display->display_options['fields']['biblio_year']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_year']['field'] = 'biblio_year';
+$handler->display->display_options['fields']['biblio_year']['biblio_label'] = 1;
+/* Field: Biblio: Age Range */
+$handler->display->display_options['fields']['biblio_custom4']['id'] = 'biblio_custom4';
+$handler->display->display_options['fields']['biblio_custom4']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_custom4']['field'] = 'biblio_custom4';
+$handler->display->display_options['fields']['biblio_custom4']['alter']['text'] = '[biblio_custom4]';
+$handler->display->display_options['fields']['biblio_custom4']['alter']['strip_tags'] = TRUE;
+/* Field: Biblio: Jurisdiction */
+$handler->display->display_options['fields']['biblio_custom3']['id'] = 'biblio_custom3';
+$handler->display->display_options['fields']['biblio_custom3']['table'] = 'biblio';
+$handler->display->display_options['fields']['biblio_custom3']['field'] = 'biblio_custom3';
+$handler->display->display_options['fields']['biblio_custom3']['label'] = 'Location';
+$handler->display->display_options['fields']['biblio_custom3']['alter']['text'] = '[biblio_custom3]';
+$handler->display->display_options['fields']['biblio_custom3']['alter']['strip_tags'] = TRUE;
+$handler->display->display_options['fields']['biblio_custom3']['element_label_colon'] = FALSE;
+$handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['defaults']['filters'] = FALSE;
+/* Filter criterion: Content: Type */
+$handler->display->display_options['filters']['type']['id'] = 'type';
+$handler->display->display_options['filters']['type']['table'] = 'node';
+$handler->display->display_options['filters']['type']['field'] = 'type';
+$handler->display->display_options['filters']['type']['value'] = array(
+  'biblio' => 'biblio',
+);
+$handler->display->display_options['filters']['type']['group'] = 1;
+/* Filter criterion: Content: Published */
+$handler->display->display_options['filters']['status']['id'] = 'status';
+$handler->display->display_options['filters']['status']['table'] = 'node';
+$handler->display->display_options['filters']['status']['field'] = 'status';
+$handler->display->display_options['filters']['status']['value'] = '1';
+$handler->display->display_options['filters']['status']['group'] = 1;
+/* Filter criterion: Content: Title */
+$handler->display->display_options['filters']['title']['id'] = 'title';
+$handler->display->display_options['filters']['title']['table'] = 'node';
+$handler->display->display_options['filters']['title']['field'] = 'title';
+$handler->display->display_options['filters']['title']['operator'] = 'contains';
+$handler->display->display_options['filters']['title']['group'] = 1;
+$handler->display->display_options['filters']['title']['exposed'] = TRUE;
+$handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+$handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+$handler->display->display_options['filters']['title']['expose']['description'] = 'Note: accepts partial word titles';
+$handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+$handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+$handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title';
+$handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
+/* Filter criterion: Content: Author (field_author) */
+$handler->display->display_options['filters']['field_author_nid']['id'] = 'field_author_nid';
+$handler->display->display_options['filters']['field_author_nid']['table'] = 'field_data_field_author';
+$handler->display->display_options['filters']['field_author_nid']['field'] = 'field_author_nid';
+$handler->display->display_options['filters']['field_author_nid']['group'] = 1;
+$handler->display->display_options['filters']['field_author_nid']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_author_nid']['expose']['operator_id'] = 'field_author_nid_op';
+$handler->display->display_options['filters']['field_author_nid']['expose']['label'] = 'Author(s)';
+$handler->display->display_options['filters']['field_author_nid']['expose']['operator'] = 'field_author_nid_op';
+$handler->display->display_options['filters']['field_author_nid']['expose']['identifier'] = 'field_author_nid';
+$handler->display->display_options['filters']['field_author_nid']['expose']['multiple'] = TRUE;
+$handler->display->display_options['filters']['field_author_nid']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+/* Filter criterion: Biblio: Keyword ID */
+$handler->display->display_options['filters']['kid']['id'] = 'kid';
+$handler->display->display_options['filters']['kid']['table'] = 'biblio_keyword';
+$handler->display->display_options['filters']['kid']['field'] = 'kid';
+$handler->display->display_options['filters']['kid']['group'] = 1;
+$handler->display->display_options['filters']['kid']['exposed'] = TRUE;
+$handler->display->display_options['filters']['kid']['expose']['operator_id'] = 'kid_op';
+$handler->display->display_options['filters']['kid']['expose']['label'] = 'Descriptors';
+$handler->display->display_options['filters']['kid']['expose']['operator'] = 'kid_op';
+$handler->display->display_options['filters']['kid']['expose']['identifier'] = 'kid';
+$handler->display->display_options['filters']['kid']['expose']['multiple'] = TRUE;
+$handler->display->display_options['filters']['kid']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['kid']['reduce_duplicates'] = TRUE;
+$handler->display->display_options['filters']['kid']['type'] = 'select';
+/* Filter criterion: Biblio: Year of Publication */
+$handler->display->display_options['filters']['biblio_year']['id'] = 'biblio_year';
+$handler->display->display_options['filters']['biblio_year']['table'] = 'biblio';
+$handler->display->display_options['filters']['biblio_year']['field'] = 'biblio_year';
+$handler->display->display_options['filters']['biblio_year']['group'] = 1;
+$handler->display->display_options['filters']['biblio_year']['exposed'] = TRUE;
+$handler->display->display_options['filters']['biblio_year']['expose']['operator_id'] = 'biblio_year_op';
+$handler->display->display_options['filters']['biblio_year']['expose']['label'] = 'Year of Publication';
+$handler->display->display_options['filters']['biblio_year']['expose']['use_operator'] = TRUE;
+$handler->display->display_options['filters']['biblio_year']['expose']['operator'] = 'biblio_year_op';
+$handler->display->display_options['filters']['biblio_year']['expose']['identifier'] = 'biblio_year';
+$handler->display->display_options['filters']['biblio_year']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+/* Filter criterion: Biblio: Age Range */
+$handler->display->display_options['filters']['biblio_custom4']['id'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['table'] = 'biblio';
+$handler->display->display_options['filters']['biblio_custom4']['field'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['operator'] = 'contains';
+$handler->display->display_options['filters']['biblio_custom4']['group'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['exposed'] = TRUE;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['operator_id'] = 'biblio_custom4_op';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['label'] = 'Age Range';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['operator'] = 'biblio_custom4_op';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['identifier'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_filter'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_field'] = 'biblio_custom4';
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['biblio_custom4']['expose']['autocomplete_dependent'] = 0;
+/* Filter criterion: Biblio: Jurisdiction */
+$handler->display->display_options['filters']['biblio_custom3']['id'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['table'] = 'biblio';
+$handler->display->display_options['filters']['biblio_custom3']['field'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['operator'] = 'contains';
+$handler->display->display_options['filters']['biblio_custom3']['group'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['exposed'] = TRUE;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['operator_id'] = 'biblio_custom3_op';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['label'] = 'Location';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['operator'] = 'biblio_custom3_op';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['identifier'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['remember_roles'] = array(
+  2 => '2',
+  3 => 0,
+  1 => 0,
+  4 => 0,
+  5 => 0,
+);
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_filter'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_items'] = '10';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_min_chars'] = '0';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_field'] = 'biblio_custom3';
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_raw_suggestion'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_raw_dropdown'] = 1;
+$handler->display->display_options['filters']['biblio_custom3']['expose']['autocomplete_dependent'] = 0;
+$handler->display->display_options['path'] = 'advanced-search-dev';
+$handler->display->display_options['menu']['type'] = 'normal';
+$handler->display->display_options['menu']['title'] = 'Adv Search Dev D7';
+$handler->display->display_options['menu']['description'] = 'boolean search';
+$handler->display->display_options['menu']['weight'] = '0';
+$handler->display->display_options['menu']['name'] = 'main-menu';
+$handler->display->display_options['menu']['context'] = 0;
+$handler->display->display_options['menu']['context_only_inline'] = 0;
+$translatables['advanced_search_migrated_d7'] = array(
+  t('Defaults'),
+  t('Advanced Search'),
+  t('more'),
+  t('Search'),
+  t('Clear'),
+  t('Sort by'),
+  t('Asc'),
+  t('Desc'),
+  t('Items per page'),
+  t('- All -'),
+  t('Offset'),
+  t('« first'),
+  t('‹ previous'),
+  t('next ›'),
+  t('last »'),
+  t('Displaying @start - @end of @total results'),
+  t('<p>Sorry, your search criteria didn\'t match on any books.</p>
+<div class="no-results">Please:
+<ul>
+<li>Modify your search filters, or</li>
+<li>Reset the search form</li>
+</ul>
+<b>Tip:</b> if you entered a title check your spelling.
+</div>'),
+  t('Book Cover'),
+  t('Title'),
+  t('Authors'),
+  t('Descriptors'),
+  t('Year of Publication'),
+  t('Age Range'),
+  t('[biblio_custom4]'),
+  t('Location'),
+  t('[biblio_custom3]'),
+  t('Note: partial word titles are ok'),
+  t('Author(s)'),
+  t('Page'),
+  t('Cover'),
+  t('Descriptor(s)'),
+  t('Note: accepts partial word titles'),
+);

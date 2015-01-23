@@ -1,0 +1,292 @@
+/* THEME OPTIONS ************************** */
+
+/* GLOBAL ********************************* */
+/* ----- Body ------------------------ */
+/* ----- Custom Fonts ---------------- */
+/* ----- Text ------------------------ */
+/* ----- Links ----------------------- */
+a, td {
+  -webkit-transition:all .3s ease-out;
+  -moz-transition:all .3s ease-out;
+  -o-transition:all .3s ease-out;
+  -ms-transition:all .3s ease-out;
+  transition:all .3s ease-out;
+}
+a:hover {text-decoration:underline}
+p {margin:1em 0}
+fieldset p {margin-top:0}
+.biblio-authors a {color:#005580}
+.biblio-category-section a:hover {color:#08c;text-decoration:underline}
+/* ----- Lists ----------------------- */
+/* ----- Tables ---------------------- */
+/* ----- Forms ----------------------- */
+
+/* HEADER ********************************* */
+/* ----- Header Region --------------- */
+.region-header {width:100%}
+
+/* ----- Search Box ------------------ */
+.nav-search {margin:-75px -20px 0 0}
+input.search-query {border-radius:4px}
+
+/* ----- Logo ------------------------ */
+.header .site-logo img {max-height:184px; max-width: 100%;}
+
+/* ----- Site Title and Slogan ------- */
+#header {background: url(../images/seastacks-banner.png) repeat-x top;}
+/* pull header flush w/top if no admin toolbar, i.e. logged out */
+body:not(.logged-in) #header {margin-top:0}
+#header .row {background: url(../images/seastacks-banner-right.jpg) no-repeat right top;}
+
+/* NAVIGATION ***************************** */
+/* ----- Back To Top Fade Button ------- */
+a.backtotop {
+  background-color:#5f493b;
+  border:1px solid #3b2d1f;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  color:#fffedc;
+  display:inline-block;
+  line-height: 1em;
+  margin:0 0 2px;
+  min-width:2.2em;
+  padding:7px 0;
+  text-decoration:none;
+  text-align:center;
+}
+a.backtotop:hover {background-color:#08c; border-color:#18546e;}
+#toTop {
+  bottom:20px;
+  right:20px;
+  display:none;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 */
+  opacity:.7;
+  position:fixed;
+  z-index: 9;
+}
+
+/* ----- Main Navigation ------------- */
+.navbar-inner {background:#5f493b; border:1px solid #3b2d1f;}
+.navbar .nav>li>a {color:#fffedc; text-shadow:none;}
+.navbar .nav>li>a:hover,
+.navbar .nav>li>a:focus {color:#dbcebc;}
+.navbar .nav>.active>a,
+.navbar .nav>.active>a:hover,
+.navbar .nav>.active>a:focus {
+  background:none;
+  color: #dbcebc;
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  box-shadow:none;
+  text-decoration: none;
+}
+.navbar .nav>li>a:focus,
+.navbar .nav>li>a:hover {background:none}
+.navbar .btn-navbar {background:#7d6c5e; color:#fffedc}
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:focus,
+.navbar .btn-navbar:active,
+.navbar .btn-navbar.active {
+  background:#dbcebc;
+  color:#5f493b;
+  text-shadow:none;
+}
+.navbar .btn-navbar .icon-bar {width:100%}
+/* ----- Secondary Navigation -------- */
+/* ----- Breadcrumbs ----------------- */
+/* ----- First Sidebar Menu Blocks --- */
+#block-user-login li {list-style-type:none; margin:0}
+
+/* Swap Log in and Request new password position */
+#block-user-login .item-list {position:relative; top:4em; text-align:left;}
+#block-user-login .form-actions {position: relative; top: -2em;}
+
+/* ----- Second Sidebar Menu Blocks -- */
+/* ----- Admin Menu ------------------ */
+/* ----- Pager Nav ------------------- */
+.item-list {text-align:center}
+.item-list ul.pager {display:inline-block; margin-top:1em}
+.biblio-alpha-line {margin:1em 0}
+.item-list .pager li,
+.biblio-alpha-line a {border:1px solid #ccc; border-radius:0;}
+.item-list .pager li a {border:none; border-radius:0;}
+.item-list .pager li {
+  display:block;
+  float:left;
+  margin:0;
+  padding:0;
+}
+.pager li>a,
+.item-list .pager li.pager-current,
+.item-list .pager li.pager-ellipsis {padding:5px 11px;}
+.item-list .pager li.pager-current {background:#f5f5f5}
+
+/* style letter headings like pager buttons */
+.biblio-alpha-line a {
+  display:inline-block;
+  word-wrap:break-word; /* responsive fix: wrap */
+  margin-left:-5px;
+  padding:4px 9px;
+}
+.biblio-alpha-line a:first-child {margin-left:0}
+.pager li>a:hover,
+.biblio-alpha-line a:hover {background:#e1e1e1}
+.item-list .pager li:first-child,
+.item-list .pager li:first-child a,
+.biblio-alpha-line a:first-child {
+  -webkit-border-top-left-radius:6px;
+  -webkit-border-bottom-left-radius:6px;
+  -moz-border-radius-topleft:6px;
+  -moz-border-radius-bottomleft:6px;
+  border-top-left-radius:6px;
+  border-bottom-left-radius:6px;
+}
+.item-list .pager li:last-child,
+.item-list .pager li:last-child a,
+.biblio-alpha-line a:last-child {
+  -webkit-border-top-right-radius:6px;
+  -webkit-border-bottom-right-radius:6px;
+  -moz-border-radius-topright:6px;
+  -moz-border-radius-bottomright:6px;
+  border-top-right-radius:6px;
+  border-bottom-right-radius:6px;
+}
+/* SIDEBARS ******************************* */
+
+/* FOOTER ********************************* */
+.site-footer {
+  background:url(../images/seastacks-banner.png) repeat-x center;
+  border-top:1px solid #ccc;
+  margin-top:0;
+  margin-bottom:0px;
+  min-height:84px;
+  padding-top:1em;
+  text-align:center;
+}
+.site-footer * {color:#00557d}
+
+/* CONTENT ******************************** */
+/* Creator content type Tax-Voc-3/4 fields: inline */
+article.node-creator .field-type-taxonomy-term-reference,
+article.node-creator .field-type-taxonomy-term-reference .field-item  {display:inline-block; margin-right:1em}
+article.node-creator .field-type-taxonomy-term-reference .field-item.odd {margin-left:1em}
+.adv-search table tr:hover td {background:#eee}
+#biblio-node table {margin-bottom:1em}
+
+/* VIEWS ********************************** */
+.view-header,
+article legend {
+  background-color:#e1e1e1;
+  color:#000;
+  border:1px solid #ccc;
+  border-radius:4px;
+  font-size:1em;
+  font-weight:bold;
+  margin:0 0 1em 0;
+  padding:0.5em;
+}
+
+/* ----- Search Results -------------- */
+.region-header {display:none}
+/* CONTAINERS ***************************** */
+/* ----- Blocks ---------------------- */
+/* ----- Wells ----------------------- */
+/* ----- Callouts and Blockquotes ---- */
+/* ----- Pullquote Text -------------- */
+/* POSTCARD LAYOUTS ********************** */
+/* IMAGES ******************************** */
+/* ICONS ********************************* */
+/* HELPER CLASSES ************************ */
+
+/* ----- Style ----------------------- */
+#biblio-header legend {font-size:1em}
+.biblio-separator-bar {border-radius:4px}
+.node-biblio .fieldset-wrapper,
+.node-creator .fieldset-wrapper {margin-left:23px}
+.no-results ul {margin-top:.5em}
+
+/* ----- Positioning ----------------- */
+/* ----- Sizing ---------------------- */
+
+/* GENERAL OVERRIDES ********************* */
+/* ----- Bootstrap Overrides --------- */
+/* ----- Field Collection Overrides -- */
+/* ----- Field Label Overrides ------- */
+
+/* ADMINISTRATION ************************ */
+/* ----- Admin ----------------------- */
+
+/* ----- Administration Menu --------- */
+#admin-menu a,
+#admin-menu li > span {font-size:larger}
+/* ----- User Block ------------------ */
+
+/* MEDIA QUERIES ************************* */
+/* ----- Responsive ------------------ */
+
+/* fix search block extended beyond container within display range */
+@media (min-device-width:747px) and (max-width:967px) { 
+  #block-search-form {margin:0 1em 0 0}
+}
+
+/* fix default footer block reduced to half width on smaller display */
+@media (max-width: 767px) {
+  .footer-content .block {width:98%}
+}
+
+/* use 2-line header right banner */
+@media (max-width:1200px) {
+  #header .row {background: url(../images/seastacks-banner-right-sm.jpg) no-repeat right top;}
+}
+/* use 3-line header right banner */
+@media (max-width:735px) {
+  #header .row {background: url(../images/seastacks-banner-right-x-sm.jpg) no-repeat right top;}
+}
+/* too small for right banner - switch to region-header block text */
+@media (max-width:645px) {
+  #header .row {background:none;}
+  .region-header,
+  .header-section {display:block;}
+  .region-header p {
+    background:#f0f7fa;
+    color:#00557d;
+    font-size:11px;
+    font-style:italic;
+    margin:0;
+    padding:0 5px;
+  }
+  .region-header span {color:#948e90}
+}
+@media (max-width: 767px) {
+  #block-search-form {
+    margin: 0 1.4em 0 0;
+    position: relative;
+    top: 6em;
+  }
+}
+@media (max-width: 480px) {
+  .region-header {display:block}
+}
+
+/* Views Table Format for /advanced-search */
+@media (max-width:635px) {
+  .adv-search table {font-size:12px;}
+}
+@media (max-width:575px) {
+  .adv-search table {font-size:11px;}
+}
+@media (max-width:545px) {
+  .adv-search table {font-size:10px;}
+}
+@media (max-width: 500px) {
+  .adv-search table {font-size:8px;}
+}
+
+/* ----- Print ----------------------- */
+@media only print
+{
+  #header,
+  #sidebar-first,
+  #footer {display:none !important}
+}
