@@ -1,4 +1,4 @@
-<div id="toTop"><a class="backtotop" href="#toTop">⬆</a></div>
+<div id="toTop"><a class="backtotop" href="#toTop">⇧</a></div>
 <a href="#main" class="element-invisible element-focusable"><?php print t('Skip to content'); ?></a>
 <?php if ($main_menu): ?>
 <a href="#main-nav" class="element-invisible element-focusable" data-target=".nav-collapse" data-toggle="collapse"><?php print t('Skip to navigation'); ?></a>
