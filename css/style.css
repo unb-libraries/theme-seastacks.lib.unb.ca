@@ -27,10 +27,13 @@ fieldset p {margin-top:0}
 
 /* ----- Search Box ------------------ */
 .nav-search {margin:-75px -20px 0 0}
+.ie8 .nav-search {margin-top:-25px}
 input.search-query {border-radius:4px}
 
 /* ----- Logo ------------------------ */
 .header .site-logo img {max-height:184px; max-width: 100%;}
+/* override openframework top margin for ie8 */
+.ie8 #header #logo {margin:0}
 
 /* ----- Site Title and Slogan ------- */
 #header {background: url(/sites/all/themes/seastacks/images/seastacks-banner.png) repeat-x top;}
@@ -67,7 +70,12 @@ a.backtotop:hover {background-color:#08c; border-color:#18546e;}
 }
 
 /* ----- Main Navigation ------------- */
-.navbar-inner {background:#5f493b; border:1px solid #3b2d1f;}
+.navbar-inner {
+  background:#5f493b;
+  border:1px solid #3b2d1f;
+  /* override bootstrap filter - IE 8/9 */  
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5f493b',endColorstr='#5f493b',GradientType=0) 
+}
 .navbar .nav>li>a {color:#fffedc; text-shadow:none;}
 .navbar .nav>li>a:hover,
 .navbar .nav>li>a:focus {color:#dbcebc;}
@@ -82,7 +90,7 @@ a.backtotop:hover {background-color:#08c; border-color:#18546e;}
   text-decoration: none;
 }
 .navbar .nav>li>a:focus,
-.navbar .nav>li>a:hover {background:none}
+.navbar .nav>li>a:hover {background:none;}
 .navbar .btn-navbar {background:#7d6c5e; color:#fffedc}
 .navbar .btn-navbar:hover,
 .navbar .btn-navbar:focus,
@@ -93,6 +101,7 @@ a.backtotop:hover {background-color:#08c; border-color:#18546e;}
   text-shadow:none;
 }
 .navbar .btn-navbar .icon-bar {width:100%}
+
 /* ----- Secondary Navigation -------- */
 /* ----- Breadcrumbs ----------------- */
 /* ----- First Sidebar Menu Blocks --- */
@@ -180,12 +189,19 @@ article legend {
   background-color:#e1e1e1;
   color:#000;
   border:1px solid #ccc;
-  border-radius:4px;
+  -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;
   font-size:1em;
   font-weight:bold;
   margin:0 0 1em 0;
   padding:0.5em;
 }
+
+/*.view-filters {
+  border:1px solid #ccc;
+  -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;
+  margin-bottom:1em;
+  padding:.5em;
+}*/
 
 /* ----- Search Results -------------- */
 .region-header {display:none}
@@ -201,7 +217,7 @@ article legend {
 
 /* ----- Style ----------------------- */
 #biblio-header legend {font-size:1em}
-.biblio-separator-bar {border-radius:4px}
+.biblio-separator-bar {-webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px}
 .node-biblio .fieldset-wrapper,
 .node-creator .fieldset-wrapper {margin-left:23px}
 .no-results ul {margin-top:.5em}
