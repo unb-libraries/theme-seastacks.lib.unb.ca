@@ -11,7 +11,7 @@
 /** configure biblio module's book-list page search form fieldset collapse behaviour
  * 0 == expanded; 1 == collapsed
  */ 
-function seastacks_form_alter(&$form, &$form_state, $form_id) {
+function seastacks_lib_unb_ca_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'biblio_search_form') {
     $form['search_form']['#collapsed'] = 0;
   }

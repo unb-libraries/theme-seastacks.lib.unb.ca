@@ -36,10 +36,10 @@ input.search-query {border-radius:4px}
 .ie8 #header #logo {margin:0}
 
 /* ----- Site Title and Slogan ------- */
-#header {background: url(/sites/all/themes/seastacks/images/seastacks-banner.png) repeat-x top;}
+#header {background: url(/sites/all/themes/seastacks_lib_unb_ca/images/seastacks-banner.png) repeat-x top;}
 /* pull header flush w/top if no admin toolbar, i.e. logged out */
 body:not(.logged-in) #header {margin-top:0}
-#header .row {background: url(/sites/all/themes/seastacks/images/seastacks-banner-right.jpg) no-repeat right top;}
+#header .row {background: url(/sites/all/themes/seastacks_lib_unb_ca/images/seastacks-banner-right.jpg) no-repeat right top;}
 
 /* NAVIGATION ***************************** */
 /* ----- Back To Top Fade Button ------- */
@@ -165,7 +165,7 @@ a.backtotop:hover {background-color:#08c; border-color:#18546e;}
 
 /* FOOTER ********************************* */
 .site-footer {
-  background:url(/sites/all/themes/seastacks/images/seastacks-banner.png) repeat-x center;
+  background:url(/sites/all/themes/seastacks_lib_unb_ca/images/seastacks-banner.png) repeat-x center;
   border-top:1px solid #ccc;
   margin-top:0;
   margin-bottom:0px;
@@ -253,11 +253,11 @@ article legend {
 
 /* use 2-line header right banner */
 @media (max-width:1200px) {
-  #header .row {background: url(/sites/all/themes/seastacks/images/seastacks-banner-right-sm.jpg) no-repeat right top;}
+  #header .row {background: url(/sites/all/themes/seastacks_lib_unb_ca/images/seastacks-banner-right-sm.jpg) no-repeat right top;}
 }
 /* use 3-line header right banner */
 @media (max-width:735px) {
-  #header .row {background: url(/sites/all/themes/seastacks/images/seastacks-banner-right-x-sm.jpg) no-repeat right top;}
+  #header .row {background: url(/sites/all/themes/seastacks_lib_unb_ca/images/seastacks-banner-right-x-sm.jpg) no-repeat right top;}
 }
 /* too small for right banner - switch to region-header block text */
 @media (max-width:645px) {
